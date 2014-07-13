@@ -1,4 +1,6 @@
-This checklist intends to provide a high-level overview of a Windows AD infrastructure set-up that will support Mac OS X clients, RADIUS and VPN authentication, and ExtremeZ-IP (optional) for AFP connectivity. It first conceived as a result of a presentation given at Penn State MacAdmins Conference in 2014.
+This checklist intends to provide a high-level overview of a Windows AD infrastructure set-up that will
+support Mac OS X clients, RADIUS and VPN authentication, and ExtremeZ-IP (optional) for AFP connectivity.
+It first conceived as a result of a presentation given at Penn State MacAdmins Conference in 2014.
 
 - General Set-up
     - Change server name
