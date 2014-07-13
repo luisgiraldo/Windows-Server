@@ -1,3 +1,5 @@
+This checklist intends to provide a high-level overview of a Windows AD infrastructure set-up that will support Mac OS X clients, RADIUS and VPN authentication, and ExtremeZ-IP (optional) for AFP connectivity. It first conceived as a result of a presentation given at Penn State MacAdmins Conference in 2014.
+
 - General Set-up
     - Change server name
     - Install updates
@@ -25,10 +27,8 @@
         - Create Servers OU
         - Create Roles OU
     - Add Users
-        - Set user’s home profile location, e.g. H =
-          \\hostname.domain.private\Homes\testuser
-    - Add Groups (e.g. VPN, RADIUS, or share access), add users to
-      groups
+        - Set user’s home profile location, e.g. H = \\hostname.domain.private\Homes\testuser
+    - Add Groups (e.g. VPN, RADIUS, or share access), add users to groups
 - Launch IIS > Server Certificates > Create self-signed cert
 - Configure RRAS
     - Enable RRAS Network Policy (Grant Access)
@@ -37,22 +37,17 @@
         - Tunnel Type (ESP, L2TP)
         - User Group (VPN Group)
     - Launch wizard for wireless RADIUS configuration
-- Enable Shadow Copy (Start > Admin Tools > Computer Mgmt > Shared
-  Folders > RC-All Tasks > Select Volume > Enable
+- Enable Shadow Copy (Start > Admin Tools > Computer Mgmt > Shared Folders > RC-All Tasks > Select Volume > Enable
 - Shares
     - Create “Homes” share, for housing user home folders
-    - Create “Generic” share, for anything else (if required for
-      testing)
+    - Create “Generic” share, for anything else (if required for testing)
 - Mac client
     - Bind Mac client to AD
     - Check AD plug-in settings:
         - NHD testing
             - Uncheck “Force local home directory on startup disk”
-            - Check “Use UNC path from Active Directory to derive
-              network home location”
-            - Confirm protocol (SMB or AFP), choose AFP if using
-              ExtremeZ-IP, for instance
+            - Check “Use UNC path from Active Directory to derive network home location”
+            - Confirm protocol (SMB or AFP), choose AFP if using ExtremeZ-IP, for instance
         - PHD testing
-            - Check “Create mobile account at login”, and “Force local
-              home directory on startup disk”
+            - Check “Create mobile account at login”, and “Force local home directory on startup disk”
     - Log out of Mac client admin account, login as test AD user
