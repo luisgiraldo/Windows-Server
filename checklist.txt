@@ -1,0 +1,59 @@
+- General Set-up
+    - Change server name (already done)
+    - Install updates (already done)
+    - Set static IP address (already done)
+    - Gotcha: Require administrator to use a password - net user
+      Administrator /passwordreq:yes
+- Add Roles
+    - Active Directory Domain Services
+    - DNS Server
+    - File Services
+    - Network Policy and Access Services
+    - Remote Access
+    - Web Server (IIS)
+- Add Features
+    - Shadow Copy
+    - Windows Search Service
+- Add Role Services
+    - Direct Access and VPN (RAS)
+- DC Promo - Promote server to domain controller
+- Launch DNS, add reverse zone, update PTR for the server’s A record
+- Organize AD
+    - Create OU for Org
+        - Create Users OU
+        - Create Groups OU
+        - Create Computers OU
+        - Create Servers OU
+        - Create Roles OU
+    - Add Users
+        - Set user’s home profile location, e.g. H =
+          \\ad01.psuwindemo.private\Homes\testuser
+    - Add Groups (e.g. VPN, RADIUS, or share access), add users to
+      groups
+- Launch IIS > Server Certificates > Create self-signed cert
+- Configure RRAS
+    - Enable RRAS Network Policy (Grant Access)
+    - Check Network Policy Conditions
+        - NAS Port Type (VPN)
+        - Tunnel Type (ESP, L2TP)
+        - User Group (VPN Group)
+    - Launch wizard for wireless RADIUS configuration
+- Enable Shadow Copy (Start > Admin Tools > Computer Mgmt > Shared
+  Folders > RC-All Tasks > Select Volume > Enable
+- Shares
+    - Create “Homes” share, for housing user home folders
+    - Create “Generic” share, for anything else (if required for
+      testing)
+- Mac client
+    - Bind Mac client to AD
+    - Check AD plug-in settings:
+        - NHD testing
+            - Uncheck “Force local home directory on startup disk”
+            - Check “Use UNC path from Active Directory to derive
+              network home location”
+            - Confirm protocol (SMB or AFP), choose AFP if using
+              ExtremeZ-IP, for instance
+        - PHD testing
+            - Check “Create mobile account at login”, and “Force local
+              home directory on startup disk”
+    - Log out of Mac client admin account, login as test AD user
