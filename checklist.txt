@@ -1,9 +1,8 @@
 - General Set-up
-    - Change server name (already done)
-    - Install updates (already done)
-    - Set static IP address (already done)
-    - Gotcha: Require administrator to use a password - net user
-      Administrator /passwordreq:yes
+    - Change server name
+    - Install updates
+    - Set static IP address
+    - Gotcha: Require administrator to use a password - net user <username> /passwordreq:yes
 - Add Roles
     - Active Directory Domain Services
     - DNS Server
@@ -27,7 +26,7 @@
         - Create Roles OU
     - Add Users
         - Set user’s home profile location, e.g. H =
-          \\ad01.psuwindemo.private\Homes\testuser
+          \\hostname.domain.private\Homes\testuser
     - Add Groups (e.g. VPN, RADIUS, or share access), add users to
       groups
 - Launch IIS > Server Certificates > Create self-signed cert
